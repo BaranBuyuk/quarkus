@@ -40,7 +40,7 @@ public class CustomerPersistTest {
     }
 
     @Test
-    public void findCustomerByEmail() {
+    public void findCustomerByEmailTest() {
         Customer customer = entityManager.createNamedQuery("Customer.FindByEmail", Customer.class)
                 .setParameter("email", "baranbuyuk@gmail.com")
                 .getSingleResult();

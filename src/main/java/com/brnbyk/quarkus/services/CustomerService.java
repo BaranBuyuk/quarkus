@@ -39,10 +39,20 @@ public class CustomerService {
 
     @Transactional(rollbackOn = Exception.class)
     public Response create(CustomerDTO customerDTO) {
-        BaseResponse<Customer> baseResponse = new BaseResponse<>();
+        BaseResponse<CustomerDTO> baseResponse = new BaseResponse<>();
         Customer customer = customerMapper.customerDTOtoCustomer(customerDTO);
         entityManager.persist(customer);
-        baseResponse.setData(customer);
+        baseResponse.setData(customerMapper.customerToCustomerDTO(customer));
         return Response.accepted(baseResponse).build();
+    }
+
+    public Response getById(Long id) {
+        BaseResponse<CustomerDTO> baseResponse = new BaseResponse<>();
+        Customer customer = entityManager.find(Customer.class, id);
+        if (customer == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        baseResponse.setData(customerMapper.customerToCustomerDTO(customer));
+        return Response.ok(baseResponse).build();
     }
 }
