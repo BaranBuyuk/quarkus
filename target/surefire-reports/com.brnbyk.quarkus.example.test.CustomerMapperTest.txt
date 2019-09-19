@@ -1,0 +1,67 @@
+-------------------------------------------------------------------------------
+Test set: com.brnbyk.quarkus.example.test.CustomerMapperTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 2, Skipped: 0, Time elapsed: 2.169 s <<< FAILURE! - in com.brnbyk.quarkus.example.test.CustomerMapperTest
+testCustomerToCustomerDTO  Time elapsed: 0.028 s  <<< ERROR!
+org.junit.jupiter.api.extension.TestInstantiationException: 
+TestInstanceFactory [io.quarkus.test.junit.QuarkusTestExtension] failed to instantiate test class [com.brnbyk.quarkus.example.test.CustomerMapperTest]: io.quarkus.builder.BuildException: Build failure: Build failed due to errors
+	[error]: Build step io.quarkus.hibernate.orm.deployment.HibernateOrmProcessor#build threw an exception: io.quarkus.deployment.configuration.ConfigurationError: Hibernate extension cannot guess the dialect as no JDBC driver is specified by 'quarkus.datasource.driver'
+	at io.quarkus.hibernate.orm.deployment.HibernateOrmProcessor.guessDialect(HibernateOrmProcessor.java:509)
+	at io.quarkus.hibernate.orm.deployment.HibernateOrmProcessor.handleHibernateORMWithNoPersistenceXml(HibernateOrmProcessor.java:373)
+	at io.quarkus.hibernate.orm.deployment.HibernateOrmProcessor.build(HibernateOrmProcessor.java:180)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at io.quarkus.deployment.ExtensionLoader$1.execute(ExtensionLoader.java:768)
+	at io.quarkus.builder.BuildContext.run(BuildContext.java:415)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:2011)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1535)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1426)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:479)
+
+Caused by: java.lang.RuntimeException: 
+io.quarkus.builder.BuildException: Build failure: Build failed due to errors
+	[error]: Build step io.quarkus.hibernate.orm.deployment.HibernateOrmProcessor#build threw an exception: io.quarkus.deployment.configuration.ConfigurationError: Hibernate extension cannot guess the dialect as no JDBC driver is specified by 'quarkus.datasource.driver'
+	at io.quarkus.hibernate.orm.deployment.HibernateOrmProcessor.guessDialect(HibernateOrmProcessor.java:509)
+	at io.quarkus.hibernate.orm.deployment.HibernateOrmProcessor.handleHibernateORMWithNoPersistenceXml(HibernateOrmProcessor.java:373)
+	at io.quarkus.hibernate.orm.deployment.HibernateOrmProcessor.build(HibernateOrmProcessor.java:180)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at io.quarkus.deployment.ExtensionLoader$1.execute(ExtensionLoader.java:768)
+	at io.quarkus.builder.BuildContext.run(BuildContext.java:415)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:2011)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1535)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1426)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:479)
+
+Caused by: io.quarkus.builder.BuildException: 
+Build failure: Build failed due to errors
+	[error]: Build step io.quarkus.hibernate.orm.deployment.HibernateOrmProcessor#build threw an exception: io.quarkus.deployment.configuration.ConfigurationError: Hibernate extension cannot guess the dialect as no JDBC driver is specified by 'quarkus.datasource.driver'
+	at io.quarkus.hibernate.orm.deployment.HibernateOrmProcessor.guessDialect(HibernateOrmProcessor.java:509)
+	at io.quarkus.hibernate.orm.deployment.HibernateOrmProcessor.handleHibernateORMWithNoPersistenceXml(HibernateOrmProcessor.java:373)
+	at io.quarkus.hibernate.orm.deployment.HibernateOrmProcessor.build(HibernateOrmProcessor.java:180)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at io.quarkus.deployment.ExtensionLoader$1.execute(ExtensionLoader.java:768)
+	at io.quarkus.builder.BuildContext.run(BuildContext.java:415)
+	at org.jboss.threads.ContextClassLoaderSavingRunnable.run(ContextClassLoaderSavingRunnable.java:35)
+	at org.jboss.threads.EnhancedQueueExecutor.safeRun(EnhancedQueueExecutor.java:2011)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.doRunTask(EnhancedQueueExecutor.java:1535)
+	at org.jboss.threads.EnhancedQueueExecutor$ThreadBody.run(EnhancedQueueExecutor.java:1426)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+	at org.jboss.threads.JBossThread.run(JBossThread.java:479)
+
+Caused by: io.quarkus.deployment.configuration.ConfigurationError: Hibernate extension cannot guess the dialect as no JDBC driver is specified by 'quarkus.datasource.driver'
+
+testCustomerDTOtoCustomer  Time elapsed: 0.02 s  <<< ERROR!
+java.lang.NullPointerException
+
