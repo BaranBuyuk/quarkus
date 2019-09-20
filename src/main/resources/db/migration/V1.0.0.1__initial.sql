@@ -2,14 +2,16 @@ DROP TABLE IF EXISTS customers;
 
 CREATE TABLE IF NOT EXISTS customers
 (
-    customer_id long         not null auto_increment,
-    name        varchar(50)  not null,
-    surname     varchar(50)  not null,
-    email       varchar(50)  not null,
-    country     varchar(100) not null,
-    street      varchar(100) not null,
-    city        varchar(100) not null,
-    zipcode     long         not null
+    customer_id  long         not null auto_increment,
+    name         varchar(50)  not null,
+    surname      varchar(50)  not null,
+    email        varchar(50)  not null,
+    country      varchar(100) not null,
+    street       varchar(100) not null,
+    city         varchar(100) not null,
+    zipcode      long         not null,
+    created_at   timestamp default current_timestamp,
+    updated_date timestamp    null
 
 );
 

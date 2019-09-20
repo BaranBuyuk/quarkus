@@ -55,4 +55,23 @@ public class CustomerService {
         baseResponse.setData(customerMapper.customerToCustomerDTO(customer));
         return Response.ok(baseResponse).build();
     }
+
+    @Transactional(rollbackOn = Exception.class)
+    public Response update(CustomerDTO customerDTO) {
+        BaseResponse<CustomerDTO> baseResponse = new BaseResponse<>();
+        Customer customer = customerMapper.customerDTOtoCustomer(customerDTO);
+        entityManager.merge(customer);
+        baseResponse.setData(customerMapper.customerToCustomerDTO(customer));
+        return Response.ok(baseResponse).build();
+    }
+
+    @Transactional(rollbackOn = Exception.class)
+    public Response delete(Long customerId) {
+        Customer customer = entityManager.find(Customer.class, customerId);
+        if (customer == null) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+        entityManager.remove(customer);
+        return Response.ok().build();
+    }
 }

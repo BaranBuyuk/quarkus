@@ -31,6 +31,14 @@ public class CustomerResource {
         return customerService.getAllCustomers();
     }
 
+    @GET
+    @Path(value = "{customerId}")
+    @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
+    @Consumes(MediaType.APPLICATION_JSON + ";charset=UTF-8")
+    public Response getByID(@PathParam("customerId") @Valid @NotNull @Min(value = 1) Long customerId) {
+        return customerService.getById(customerId);
+    }
+
     @POST
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
     @Consumes(MediaType.APPLICATION_JSON + ";charset=UTF-8")
@@ -38,12 +46,20 @@ public class CustomerResource {
         return customerService.create(customerDTO);
     }
 
-    @GET
+    @PUT
+    @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
+    @Consumes(MediaType.APPLICATION_JSON + ";charset=UTF-8")
+    public Response update(@Valid CustomerDTO customerDTO) {
+        return customerService.update(customerDTO);
+    }
+
+
+    @DELETE
     @Path(value = "{customerId}")
     @Produces(MediaType.APPLICATION_JSON + ";charset=UTF-8")
     @Consumes(MediaType.APPLICATION_JSON + ";charset=UTF-8")
-    public Response getByID(@PathParam("customerId") @Valid @NotNull @Min(value = 1) Long customerId) {
-        return customerService.getById(customerId);
+    public Response delete(@PathParam("customerId") @Valid @NotNull @Min(value = 1) Long customerId) {
+        return customerService.delete(customerId);
     }
 
 

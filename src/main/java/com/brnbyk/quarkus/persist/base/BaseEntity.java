@@ -1,9 +1,10 @@
 package com.brnbyk.quarkus.persist.base;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 /**
  * Username = baranbuyuk
@@ -17,6 +18,14 @@ public abstract class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
 
+    @CreationTimestamp
+    @Column(name = "created_at")
+    private LocalDateTime createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "updated_date")
+    private LocalDateTime updatedDate;
+
     public Long getID() {
         return ID;
     }
@@ -25,19 +34,20 @@ public abstract class BaseEntity {
         this.ID = ID;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof BaseEntity)) return false;
-
-        BaseEntity that = (BaseEntity) o;
-
-        return getID() != null ? getID().equals(that.getID()) : that.getID() == null;
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
     }
 
-    @Override
-    public int hashCode() {
-        return getID() != null ? getID().hashCode() : 0;
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(LocalDateTime updatedDate) {
+        this.updatedDate = updatedDate;
     }
 
     @Override

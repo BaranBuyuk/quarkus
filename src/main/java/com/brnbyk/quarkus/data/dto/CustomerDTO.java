@@ -1,10 +1,12 @@
 package com.brnbyk.quarkus.data.dto;
 
+import javax.json.bind.annotation.JsonbProperty;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import static com.brnbyk.quarkus.util.AppUtil.EMAIL_PATTERN;
 
@@ -31,6 +33,13 @@ public class CustomerDTO implements Serializable {
     @Valid
     @NotNull
     private AddressDTO address;
+
+
+    @JsonbProperty(nillable = true)
+    private LocalDateTime createdAt;
+
+    @JsonbProperty(nillable = true)
+    private LocalDateTime updatedDate;
 
     public String getName() {
         return name;
@@ -72,6 +81,22 @@ public class CustomerDTO implements Serializable {
         this.id = id;
     }
 
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedDate() {
+        return updatedDate;
+    }
+
+    public void setUpdatedDate(LocalDateTime updatedDate) {
+        this.updatedDate = updatedDate;
+    }
+
     @Override
     public String toString() {
         return "CustomerDTO{" +
@@ -80,6 +105,8 @@ public class CustomerDTO implements Serializable {
                 ", surname='" + surname + '\'' +
                 ", email='" + email + '\'' +
                 ", address=" + address +
+                ", createdAt=" + createdAt +
+                ", updatedDate=" + updatedDate +
                 '}';
     }
 }
