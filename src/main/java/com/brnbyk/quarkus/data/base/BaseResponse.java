@@ -1,11 +1,14 @@
 package com.brnbyk.quarkus.data.base;
 
+import io.quarkus.runtime.annotations.RegisterForReflection;
+
 import java.io.Serializable;
 
 /**
  * Username = baranbuyuk
  * Date = 18.09.2019 14:49
  **/
+@RegisterForReflection
 public class BaseResponse<T> implements Serializable {
 
     private T data;

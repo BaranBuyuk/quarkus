@@ -1,9 +1,12 @@
-package com.brnbyk.quarkus.example.test.persist;
+package com.brnbyk.quarkus.example.test.jvm.persist;
 
+import com.brnbyk.quarkus.example.test.jvm.InitializePostgreSQLTestContainer;
 import com.brnbyk.quarkus.persist.Address;
 import com.brnbyk.quarkus.persist.Customer;
+import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
@@ -14,6 +17,7 @@ import javax.transaction.Transactional;
  * Username = baranbuyuk
  * Date = 19.09.2019 15:47
  **/
+@QuarkusTestResource(InitializePostgreSQLTestContainer.class)
 @QuarkusTest
 public class CustomerPersistTest {
 
@@ -23,6 +27,7 @@ public class CustomerPersistTest {
 
     @Test
     @Transactional
+    @Order(1)
     public void saveCustomerTest() {
         Customer customer = getMockCustomer();
         entityManager.persist(customer);
@@ -30,7 +35,13 @@ public class CustomerPersistTest {
     }
 
     @Test
+    @Order(2)
+    @Transactional
     public void findCustomerByIdTest() {
+        Customer savedCustomer = getMockCustomer();
+        savedCustomer.setEmail("baran@gmail.com");
+        entityManager.persist(savedCustomer);
+
         Customer customer = entityManager.createNamedQuery("Customer.FindByID", Customer.class)
                 .setParameter("customerId", 1L)
                 .getSingleResult();
@@ -40,17 +51,8 @@ public class CustomerPersistTest {
     }
 
     @Test
-    public void findCustomerByEmailTest() {
-        Customer customer = entityManager.createNamedQuery("Customer.FindByEmail", Customer.class)
-                .setParameter("email", "baranbuyuk@gmail.com")
-                .getSingleResult();
-
-        Assertions.assertNotNull(customer);
-        Assertions.assertEquals(customer.getEmail(), "baranbuyuk@gmail.com");
-    }
-
-    @Test
     @Transactional
+    @Order(4)
     public void updateCustomerTest() {
         Customer customerOnDb = entityManager.createNamedQuery("Customer.FindByID", Customer.class)
                 .setParameter("customerId", 1L)

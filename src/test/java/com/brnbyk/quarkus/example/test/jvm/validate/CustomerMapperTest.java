@@ -1,4 +1,4 @@
-package com.brnbyk.quarkus.example.test;
+package com.brnbyk.quarkus.example.test.jvm.validate;
 
 import com.brnbyk.quarkus.data.dto.AddressDTO;
 import com.brnbyk.quarkus.data.dto.CustomerDTO;

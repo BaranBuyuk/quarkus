@@ -1,8 +1,10 @@
-package com.brnbyk.quarkus.example.test.validate;
+package com.brnbyk.quarkus.example.test.jvm.validate;
 
 import com.brnbyk.quarkus.data.dto.AddressDTO;
 import com.brnbyk.quarkus.data.dto.CustomerDTO;
+import io.quarkus.test.junit.DisabledOnSubstrate;
 import io.quarkus.test.junit.QuarkusTest;
+import org.junit.Ignore;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

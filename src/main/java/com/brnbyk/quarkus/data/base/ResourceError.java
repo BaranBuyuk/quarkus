@@ -1,10 +1,14 @@
 package com.brnbyk.quarkus.data.base;
 
+import java.io.Serializable;
+
 /**
  * Username = baranbuyuk
  * Date = 18.09.2019 14:49
  **/
-public class ResourceError {
+public class ResourceError implements Serializable {
+
+    private static final long serialVersionUID = 4269834219970196789L;
 
     private String errorMessage;
     private String errorCode;

@@ -7,6 +7,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 import static com.brnbyk.quarkus.util.AppUtil.EMAIL_PATTERN;
 
