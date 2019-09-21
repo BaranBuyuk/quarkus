@@ -1,8 +1,5 @@
 package com.brnbyk.quarkus.persist.base;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
-
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
@@ -11,6 +8,7 @@ import java.time.LocalDateTime;
  * Date = 19.09.2019 11:36
  **/
 @MappedSuperclass
+@EntityListeners(BaseEntityListener.class)
 public abstract class BaseEntity {
 
 
@@ -18,11 +16,9 @@ public abstract class BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long ID;
 
-    @CreationTimestamp
     @Column(name = "created_at")
     private LocalDateTime createdAt;
 
-    @UpdateTimestamp
     @Column(name = "updated_date")
     private LocalDateTime updatedDate;
 

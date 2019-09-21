@@ -72,7 +72,7 @@ public class CustomerPersistTest {
         Customer customer = new Customer();
         customer.setName("Baran");
         customer.setSurname("Büyük");
-        customer.setEmail("baranbuyuk@gmail.com");
+        customer.setEmail("baranbuyuk-test@gmail.com");
         Address address = new Address();
         address.setZipCode(34567L);
         address.setStreet("Ferah");

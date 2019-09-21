@@ -1,6 +1,6 @@
 package com.brnbyk.quarkus.services;
 
-import com.brnbyk.quarkus.data.BaseResponse;
+import com.brnbyk.quarkus.data.base.BaseResponse;
 import com.brnbyk.quarkus.data.dto.CustomerDTO;
 import com.brnbyk.quarkus.mapper.CustomerMapper;
 import com.brnbyk.quarkus.persist.Customer;

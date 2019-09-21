@@ -1,4 +1,4 @@
-package com.brnbyk.quarkus.data;
+package com.brnbyk.quarkus.data.base;
 
 import java.io.Serializable;
 
